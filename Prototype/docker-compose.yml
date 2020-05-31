@@ -1,0 +1,15 @@
+version: '3.8'
+
+services:
+  wildfly:
+    build: docker/wildfly
+    depends_on:
+      - oracledb
+    ports:
+      - '8080:8080'
+      - '9990:9990'
+  oracledb:
+    build: docker/oracledb
+    ports:
+      - '1521:1521'
+      - '5500:5500'
